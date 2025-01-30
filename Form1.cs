@@ -12,6 +12,7 @@ namespace FinalProject
         public Form1()
         {
             InitializeComponent();
+            startDirectoryInput.Text = @"C:\Users\user\";
         }
 
         private async void start_Click(object sender, EventArgs e)
@@ -21,7 +22,7 @@ namespace FinalProject
                 MessageBox.Show("Words list is empty");
                 return;
             }
-            string rootPath = @"C:\Users\user\";
+            string rootPath = startDirectoryInput.Text;
 
             try
             {
