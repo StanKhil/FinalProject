@@ -38,6 +38,9 @@
             process = new ProgressBar();
             startDirectory = new Label();
             startDirectoryInput = new TextBox();
+            pause = new Button();
+            resume = new Button();
+            stop = new Button();
             SuspendLayout();
             // 
             // start
@@ -124,11 +127,44 @@
             startDirectoryInput.Size = new Size(289, 23);
             startDirectoryInput.TabIndex = 11;
             // 
+            // pause
+            // 
+            pause.Location = new Point(142, 398);
+            pause.Name = "pause";
+            pause.Size = new Size(75, 27);
+            pause.TabIndex = 12;
+            pause.Text = "pause";
+            pause.UseVisualStyleBackColor = true;
+            pause.Click += pause_Click;
+            // 
+            // resume
+            // 
+            resume.Location = new Point(249, 398);
+            resume.Name = "resume";
+            resume.Size = new Size(75, 27);
+            resume.TabIndex = 13;
+            resume.Text = "resume";
+            resume.UseVisualStyleBackColor = true;
+            resume.Click += resume_Click;
+            // 
+            // stop
+            // 
+            stop.Location = new Point(361, 398);
+            stop.Name = "stop";
+            stop.Size = new Size(75, 27);
+            stop.TabIndex = 14;
+            stop.Text = "stop";
+            stop.UseVisualStyleBackColor = true;
+            stop.Click += stop_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(stop);
+            Controls.Add(resume);
+            Controls.Add(pause);
             Controls.Add(startDirectoryInput);
             Controls.Add(startDirectory);
             Controls.Add(process);
@@ -157,5 +193,8 @@
         private ProgressBar process;
         private Label startDirectory;
         private TextBox startDirectoryInput;
+        private Button pause;
+        private Button resume;
+        private Button stop;
     }
 }
