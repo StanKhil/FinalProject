@@ -28,6 +28,7 @@ namespace FinalProject
 
             InitializeComponent();
             startDirectoryInput.Text = @"C:\\Users\\user\\";
+            copyDirectoryInput.Text = @"C:\\Users\\user\\";
         }
 
         private async void start_Click(object sender, EventArgs e)
@@ -104,7 +105,7 @@ namespace FinalProject
                             lastProcessedIndex = i;
                             return;
                         }
-                        textBox1.Text = files[i];
+                        currentFile.Text = files[i];
                         try
                         {
                             await ProcessFileAsync(files[i], token);
@@ -161,7 +162,7 @@ namespace FinalProject
             }
             catch (Exception ex)
             {
-                File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці {file}: {ex.Message}\n");
+                //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці {file}: {ex.Message}\n");
             }
         }
 
@@ -169,14 +170,14 @@ namespace FinalProject
         {
             try
             {
-                string changedFilesDir = @"C:\\Users\\user\\ChangedFiles";
+                string changedFilesDir = copyDirectoryInput.Text + "ChangedFiles";
                 Directory.CreateDirectory(changedFilesDir);
                 string newFilePath = Path.Combine(changedFilesDir, Path.GetFileName(originalFilePath));
                 await File.WriteAllTextAsync(newFilePath, newContent);
             }
             catch (Exception ex)
             {
-                File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при збереженні файлу {originalFilePath}: {ex.Message}\n");
+                //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при збереженні файлу {originalFilePath}: {ex.Message}\n");
             }
         }
 
@@ -184,7 +185,7 @@ namespace FinalProject
         {
             try
             {
-                string reportPath = @"C:\\Users\\user\\scan_report.txt";
+                string reportPath = copyDirectoryInput + "scan_report.txt";
                 var topWords = wordCount.OrderByDescending(x => x.Value).Take(10);
                 using (StreamWriter writer = new StreamWriter(reportPath))
                 {
@@ -202,7 +203,7 @@ namespace FinalProject
             }
             catch (Exception ex)
             {
-                File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при створенні звіту: {ex.Message}\n");
+                //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при створенні звіту: {ex.Message}\n");
             }
         }
 

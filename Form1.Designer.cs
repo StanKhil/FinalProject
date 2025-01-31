@@ -30,7 +30,7 @@
         {
             start = new Button();
             current = new Label();
-            textBox1 = new TextBox();
+            currentFile = new TextBox();
             add = new Button();
             inputWords = new TextBox();
             delete = new Button();
@@ -41,6 +41,8 @@
             pause = new Button();
             resume = new Button();
             stop = new Button();
+            copyDirectory = new Label();
+            copyDirectoryInput = new TextBox();
             SuspendLayout();
             // 
             // start
@@ -61,12 +63,12 @@
             current.Size = new Size(0, 15);
             current.TabIndex = 1;
             // 
-            // textBox1
+            // currentFile
             // 
-            textBox1.Location = new Point(70, 359);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(677, 23);
-            textBox1.TabIndex = 2;
+            currentFile.Location = new Point(70, 359);
+            currentFile.Name = "currentFile";
+            currentFile.Size = new Size(677, 23);
+            currentFile.TabIndex = 2;
             // 
             // add
             // 
@@ -114,7 +116,7 @@
             // startDirectory
             // 
             startDirectory.AutoSize = true;
-            startDirectory.Location = new Point(104, 95);
+            startDirectory.Location = new Point(104, 53);
             startDirectory.Name = "startDirectory";
             startDirectory.Size = new Size(82, 15);
             startDirectory.TabIndex = 10;
@@ -122,7 +124,7 @@
             // 
             // startDirectoryInput
             // 
-            startDirectoryInput.Location = new Point(104, 137);
+            startDirectoryInput.Location = new Point(104, 82);
             startDirectoryInput.Name = "startDirectoryInput";
             startDirectoryInput.Size = new Size(289, 23);
             startDirectoryInput.TabIndex = 11;
@@ -157,11 +159,29 @@
             stop.UseVisualStyleBackColor = true;
             stop.Click += stop_Click;
             // 
+            // copyDirectory
+            // 
+            copyDirectory.AutoSize = true;
+            copyDirectory.Location = new Point(104, 140);
+            copyDirectory.Name = "copyDirectory";
+            copyDirectory.Size = new Size(86, 15);
+            copyDirectory.TabIndex = 15;
+            copyDirectory.Text = "Copy Directory";
+            // 
+            // copyDirectoryInput
+            // 
+            copyDirectoryInput.Location = new Point(104, 172);
+            copyDirectoryInput.Name = "copyDirectoryInput";
+            copyDirectoryInput.Size = new Size(289, 23);
+            copyDirectoryInput.TabIndex = 16;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(copyDirectoryInput);
+            Controls.Add(copyDirectory);
             Controls.Add(stop);
             Controls.Add(resume);
             Controls.Add(pause);
@@ -172,7 +192,7 @@
             Controls.Add(delete);
             Controls.Add(inputWords);
             Controls.Add(add);
-            Controls.Add(textBox1);
+            Controls.Add(currentFile);
             Controls.Add(current);
             Controls.Add(start);
             Name = "Form1";
@@ -185,7 +205,7 @@
 
         private Button start;
         private Label current;
-        private TextBox textBox1;
+        private TextBox currentFile;
         private Button add;
         private TextBox inputWords;
         private Button delete;
@@ -196,5 +216,7 @@
         private Button pause;
         private Button resume;
         private Button stop;
+        private Label copyDirectory;
+        private TextBox copyDirectoryInput;
     }
 }
