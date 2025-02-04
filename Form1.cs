@@ -76,13 +76,13 @@ namespace FinalProject
                             catch (UnauthorizedAccessException) { }
                             catch (Exception ex)
                             {
-                                //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці директорії {currentDirectory}: {ex.Message}\n");
+                                File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці директорії {currentDirectory}: {ex.Message}\n");
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при збиранні файлів: {ex.Message}\n");
+                        File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при збиранні файлів: {ex.Message}\n");
                     }
                     lastProcessedIndex = 0;
                 }
@@ -112,14 +112,13 @@ namespace FinalProject
                         }
                         catch (Exception ex)
                         {
-                            //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці {files[i]}: {ex.Message}\n");
+                            File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці {files[i]}: {ex.Message}\n");
                         }
                         process.Value++;
                     }
                 }
                 catch(Exception ex)
                 {
-                    //MessageBox.Show($"Помилка: {ex.Message}");
                 }
 
 
@@ -129,7 +128,6 @@ namespace FinalProject
             }
             catch (Exception ex)
             {
-                //MessageBox.Show($"Помилка: {ex.Message}");
             }
         }
 
@@ -162,7 +160,7 @@ namespace FinalProject
             }
             catch (Exception ex)
             {
-                //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці {file}: {ex.Message}\n");
+                File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при обробці {file}: {ex.Message}\n");
             }
         }
 
@@ -177,7 +175,7 @@ namespace FinalProject
             }
             catch (Exception ex)
             {
-                //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при збереженні файлу {originalFilePath}: {ex.Message}\n");
+                File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при збереженні файлу {originalFilePath}: {ex.Message}\n");
             }
         }
 
@@ -185,7 +183,7 @@ namespace FinalProject
         {
             try
             {
-                string reportPath = copyDirectoryInput + "scan_report.txt";
+                string reportPath = copyDirectoryInput.Text + "scan_report.txt";
                 var topWords = wordCount.OrderByDescending(x => x.Value).Take(10);
                 using (StreamWriter writer = new StreamWriter(reportPath))
                 {
@@ -203,7 +201,7 @@ namespace FinalProject
             }
             catch (Exception ex)
             {
-                //File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при створенні звіту: {ex.Message}\n");
+                File.AppendAllText(@"C:\\Users\\user\\error_log.txt", $"Помилка при створенні звіту: {ex.Message}\n");
             }
         }
 
